@@ -16,6 +16,8 @@ jobs:
       - name: Delete .obsidian directories
         run: |
           echo "Checking for .obsidian directories..."
-          find . -type d -name '.obsidian*' -exec rm -rf {} +
-          echo ".obsidian directories deleted."
-
+          if [ -d ".obsidian" ]; then
+            echo "Deleting .obsidian directory..."
+            rm -rf .obsidian
+          fi
+          echo ".obsidian directory deleted if it existed."
