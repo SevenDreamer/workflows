@@ -1,0 +1,21 @@
+name: Cleanup Obsidian Directory
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  cleanup:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Delete .obsidian directories
+        run: |
+          echo "Checking for .obsidian directories..."
+          find . -type d -name '.obsidian*' -exec rm -rf {} +
+          echo ".obsidian directories deleted."
+
