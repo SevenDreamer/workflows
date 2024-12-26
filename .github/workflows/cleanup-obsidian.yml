@@ -26,14 +26,15 @@ jobs:
 
       - name: Commit changes if .obsidian was deleted
         run: |
-          if [ -d ".obsidian" ]; then
-            echo "No changes to commit."
-          else
+          if [ ! -d ".obsidian" ]; then
+            echo "Committing changes..."
             git config --local user.email "actions@github.com"  # GitHub Actions 机器人邮箱
             git config --local user.name "GitHub Action"
-            git add .obsidian
+            git add -u  # 只添加已删除的文件
             git commit -m "Remove .obsidian directory from main branch"
             git push
+          else
+            echo "No changes to commit."
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 提供的 token
