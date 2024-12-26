@@ -34,6 +34,7 @@ jobs:
             git add .obsidian
             git commit -m "Remove .obsidian directory from main branch"
             git push
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # 使用 GitHub 提供的 token
 
