@@ -6,7 +6,6 @@ on:
 
 jobs:
   cleanup:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
@@ -19,5 +18,8 @@ jobs:
           if [ -d ".obsidian" ]; then
             echo "Deleting .obsidian directory..."
             rm -rf .obsidian
+            echo ".obsidian directory deleted."
+          else
+            echo ".obsidian directory does not exist."
           fi
-          echo ".obsidian directory deleted if it existed."
+
