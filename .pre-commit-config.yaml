@@ -3,5 +3,11 @@ repos:
     rev: v0.1.0
     hooks:
     -   id: obsidian-pre-commit
+        stages: [commit]
+        language: script
     -   id: obsidian-pre-push
+        stages: [push]
+        language: script
     -   id: obsidian-post-merge
+        stages: [post-merge]
+        language: script
