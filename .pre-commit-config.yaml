@@ -1,0 +1,7 @@
+repos:
+-   repo: https://github.com/SevenDreamer/git-hooks
+    rev: v0.1.0
+    hooks:
+    -   id: obsidian-pre-commit
+    -   id: obsidian-pre-push
+    -   id: obsidian-post-merge
