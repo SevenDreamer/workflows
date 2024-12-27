@@ -1,5 +1,0 @@
-{
-    "yaml.schemas": {
-        "https://json.schemastore.org/pre-commit-config.json": "file:///root/learn/git_actions/.pre-commit-hooks.yaml"
-    }
-}
